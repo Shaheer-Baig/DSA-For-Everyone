@@ -13,7 +13,13 @@ A **vector** is a dynamic array in C++ that is part of the STL. Unlike arrays, v
 5. **Built-In Functions**: STL provides many member functions to work with vectors easily.
 
 ---
-![image](https://github.com/user-attachments/assets/3632c76e-4236-4f59-9626-2caf3d793b93)
+![image](https://github.com/user-attachments/assets/91a1edb6-3af1-41dc-864a-1150fb74aeef)
+![image](https://github.com/user-attachments/assets/06cb29a9-1222-4855-b613-6f9e7a9a457c)
+![image](https://github.com/user-attachments/assets/e701d5b0-cdbc-4782-98d3-c547558e47ba)
+![image](https://github.com/user-attachments/assets/0cfb1ecf-07b3-4713-81b1-59cdd1301d83)
+![image](https://github.com/user-attachments/assets/beb9cd0a-657b-4f44-91c7-7d6ae05408c7)
+![image](https://github.com/user-attachments/assets/f5b7eaff-39ae-4c1e-9fcd-a3e6bf7dcbc3)
+![image](https://github.com/user-attachments/assets/057acb43-8c4f-44a7-8a0e-892a725261da)
 
 
 
