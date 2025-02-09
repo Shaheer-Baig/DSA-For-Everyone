@@ -1,45 +1,71 @@
 # DSA-For-Everyone
-A comprehensive collection of basic concepts in Data Structures and Algorithms (DSA) with clear explanations and code implementations. Perfect for beginners and those looking to strengthen their DSA fundamentals!
- # Content
- # Time Complexity
-Explanation of different time complexities: Constant (O(1)), Logarithmic (O(log n)), Linear (O(n)), Quadratic (O(n²)), and more.
-Understanding how time complexity impacts algorithm efficiency.
-# Arrays
-Basic and advanced operations on 1D and 2D arrays.
-Efficient techniques for insertion, deletion, searching, and sorting.
-# Linked Lists
-Implementation of Singly Linked List, Doubly Linked List, and Circular Linked List.
-Operations including insertion, deletion, traversal, and searching.
-# Stacks
-Array-based and linked list-based stack implementations.
-Covers both finite and infinite stacks.
-# Queues
-Implementation of Linear Queue, Circular Queue, and Priority Queue.
-Queue operations using arrays and linked lists.
-# Sorting Algorithms
-Implementation of Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, Merge Sort, and other sorting techniques.
-# Vectors
-Understanding dynamic and static vectors.
-Implementation of multidimensional vectors.
-# Recursion
-Covers different types of recursion: tail recursion, non-tail recursion, and indirect recursion.
-Practical examples and problem-solving techniques.
-# Trees
-Overview of Binary Trees, Binary Search Trees (BST), and AVL Trees.
-Common operations such as insertion, deletion, and traversal (inorder, preorder, postorder).
-# Graphs
-Graph representation and traversal using BFS (Breadth-First Search) and DFS (Depth-First Search).
-Implementation of Dijkstra’s Algorithm for shortest path calculations.
-# Hash Maps
-Implementation of hash maps using techniques such as separate chaining, linear probing, quadratic probing, and double hashing
-How to Use
-Clone this repository to your local machine using:
 
-git clone https:
-Navigate into the directory you are interested in.
+A comprehensive collection of fundamental concepts in **Data Structures and Algorithms (DSA)** with clear explanations and code implementations. Perfect for beginners and those looking to strengthen their DSA fundamentals.  
 
-Read the README.md in each folder for detailed explanations of the concepts and the implementations in each file.
+## 📌 Content  
 
-Run the individual programs to see the algorithms in action.
+- [Time Complexity](#time-complexity)  
+- [Arrays](#arrays)  
+- [Linked Lists](#linked-lists)  
+- [Stacks](#stacks)  
+- [Queues](#queues)  
+- [Sorting Algorithms](#sorting-algorithms)  
+- [Vectors](#vectors)  
+- [Recursion](#recursion)  
+- [Trees](#trees)  
+- [Graphs](#graphs)  
+- [Hash Maps](#hash-maps)  
+- [How to Use](#how-to-use)  
 
-Open the codes in VS-Code/nano/vim or any editor of your choice to learn from the code.
+---
+
+## Time Complexity  
+- Explanation of different time complexities: **Constant (O(1)), Logarithmic (O(log n)), Linear (O(n)), Quadratic (O(n²))**, and more.  
+- Understanding how time complexity impacts algorithm efficiency.  
+
+## Arrays  
+- Basic and advanced operations on **1D and 2D arrays**.  
+- Efficient techniques for **insertion, deletion, searching, and sorting**.  
+
+## Linked Lists  
+- Implementation of **Singly Linked List, Doubly Linked List, and Circular Linked List**.  
+- Operations including **insertion, deletion, traversal, and searching**.  
+
+## Stacks  
+- Array-based and linked list-based **stack implementations**.  
+- Covers both **finite and infinite stacks**.  
+
+## Queues  
+- Implementation of **Linear Queue, Circular Queue, and Priority Queue**.  
+- Queue operations using **arrays and linked lists**.  
+
+## Sorting Algorithms  
+- Implementation of **Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, Merge Sort**, and other sorting techniques.  
+
+## Vectors  
+- Understanding **dynamic and static vectors**.  
+- Implementation of **multidimensional vectors**.  
+
+## Recursion  
+- Covers different types of recursion: **tail recursion, non-tail recursion, and indirect recursion**.  
+- Practical examples and **problem-solving techniques**.  
+
+## Trees  
+- Overview of **Binary Trees, Binary Search Trees (BST), and AVL Trees**.  
+- Common operations such as **insertion, deletion, and traversal (inorder, preorder, postorder)**.  
+
+## Graphs  
+- Graph representation and traversal using **BFS (Breadth-First Search) and DFS (Depth-First Search)**.  
+- Implementation of **Dijkstra’s Algorithm** for shortest path calculations.  
+
+## Hash Maps  
+- Implementation of **hash maps** using techniques such as **separate chaining, linear probing, quadratic probing, and double hashing**.  
+
+---
+
+## How to Use  
+
+### 1️⃣ Clone the Repository  
+To get started, clone this repository to your local machine using:  
+```sh
+git clone <repository_url>
