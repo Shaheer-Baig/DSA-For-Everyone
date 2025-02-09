@@ -12,19 +12,19 @@ Here’s how you can add or remove elements from the head, tail, or center of an
 
 #### a. **Add to the Tail**
 
-Append an element at the end of the array. If there's enough space, it simply goes to the next available index.**Time Complexity**: O(1) if no resizing is needed, O(n) if resizing occurs.O(1)O(1)O(n)
+Append an element at the end of the array. If there's enough space, it simply goes to the next available index.**Time Complexity**: O(1) if no resizing is needed, O(n) if resizing occurs.
 
 #### b. **Remove from the Tail**
 
-Remove the last element in the array. You can just decrease the size or set the element to null/0/undefined.**Time Complexity**: O(1).O(1)
+Remove the last element in the array. You can just decrease the size or set the element to null/0/undefined.**Time Complexity**: O(1)
 
 #### c. **Add to the Head**
 
-To insert at the head, you need to shift all elements one position to the right to make room for the new element.**Time Complexity**: O(n).O(n)
+To insert at the head, you need to shift all elements one position to the right to make room for the new element.**Time Complexity**: O(n)
 
 #### d. **Remove from the Head**
 
-Similar to insertion at the head, removing an element from the head requires shifting all the elements one position to the left.**Time Complexity**: O(n).O(n)
+Similar to insertion at the head, removing an element from the head requires shifting all the elements one position to the left.**Time Complexity**: O(n)
 
 #### e. **Add to the Center**
 
