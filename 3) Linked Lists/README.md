@@ -23,8 +23,7 @@ In a singly linked list:
     
 
 **Structure**:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   [Head] -> [Node 1] -> [Node 2] -> [Node 3] -> NULL   `
+`   [Head] -> [Node 1] -> [Node 2] -> [Node 3] -> NULL   `
 
 **Advantages**:
 
@@ -53,7 +52,7 @@ In a doubly linked list:
 
 **Structure**:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   NULL <- [Head] <-> [Node 1] <-> [Node 2] <-> [Tail] -> NULL   `
+ `   NULL <- [Head] <-> [Node 1] <-> [Node 2] <-> [Tail] -> NULL   `
 
 **Advantages**:
 
@@ -83,8 +82,7 @@ In a circular linked list:
         
 
 **Structure**:
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   [Head] -> [Node 1] -> [Node 2] -> [Tail] -> [Head] (circular)   `
+`   [Head] -> [Node 1] -> [Node 2] -> [Tail] -> [Head] (circular)   `
 
 **Advantages**:
 
