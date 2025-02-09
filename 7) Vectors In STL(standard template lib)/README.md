@@ -27,5 +27,13 @@ vector<int> v2(5);       // Vector of size 5 with default values (0 for int)
 vector<int> v3(5, 10);   // Vector of size 5, initialized with value 10
 vector<int> v4{1, 2, 3}; // Vector initialized with a list of values
 
+### Explanation:
+1. **Close the previous block** using ` ``` `.
+2. **Write additional Markdown text** (e.g., a new heading or explanation).
+3. **Open a new code block** using ` ```cpp `.
+4. **Write your new code** and close it with ` ``` `.
+
+This approach keeps your Markdown file **structured and readable**. 🚀 Let me know if you need further clarification!
+
 
 
