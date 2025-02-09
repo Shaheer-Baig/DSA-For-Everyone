@@ -100,9 +100,13 @@ Stacks are essential for multiple areas of computing:
 
 For both array-based and linked list-based stacks, the time complexities of the primary operations are:
 
-OperationTime ComplexityDescriptionPushO(1)Adding an element to the top is constant time.PopO(1)Removing the top element is constant time.PeekO(1)Accessing the top element is constant time.IsEmptyO(1)Checking if the stack is empty is constant time.
+| Operation | Time Complexity | Description |
+|-----------|----------------|-------------|
+| Push      | `O(1)`         | Adding an element to the top is constant time. |
+| Pop       | `O(1)`         | Removing the top element is constant time. |
+| Peek      | `O(1)`         | Accessing the top element is constant time. |
+| IsEmpty   | `O(1)`         | Checking if the stack is empty is constant time. |
 
-The O(1) time complexity for all basic operations makes stacks extremely efficient for scenarios that need quick access and modification at the top.
 
 ### 9\. **Applications of Stacks in Real-World Scenarios**
 
