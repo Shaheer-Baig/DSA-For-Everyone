@@ -1,7 +1,7 @@
 # Understanding Time Complexity
 
 ## **What is Time Complexity?**
-Time Complexity is a measure of the computational time an algorithm takes to complete based on input size `n`. It helps determine how an algorithm scales as the input grows.  
+Time Complexity is a measure of the computational time an algorithm takes to complete based on input size `n`. It helps determine how an algorithm scales as the input grows.
 
 The **Big O notation** (e.g., `O(n)`, `O(log n)`) describes time complexity, typically focusing on the worst-case scenario unless otherwise stated.
 
@@ -27,7 +27,46 @@ The **Big O notation** (e.g., `O(n)`, `O(log n)`) describes time complexity, typ
 An algorithm with `O(1)` complexity runs in the same amount of time, regardless of the input size. This is the most efficient time complexity.
 
 #### **Example: Accessing an array element**
-```cpp
-int getFirstElement(int arr[]) {
-    return arr[0]; // Always takes constant time
-}
+
+---
+
+### **2. Logarithmic Time Complexity - `O(log n)`**
+An algorithm with `O(log n)` complexity reduces the problem size in each step, often seen in divide-and-conquer algorithms like binary search.
+
+#### **Example: Binary Search**
+
+---
+
+### **3. Linear Time Complexity - `O(n)`**
+An `O(n)` algorithm processes each element exactly once.
+
+#### **Example: Finding Maximum**
+
+---
+
+### **4. Linearithmic Time Complexity - `O(n log n)`**
+Sorting algorithms like Merge Sort and Quick Sort often have this complexity.
+
+#### **Example: Merge Sort**
+
+
+---
+
+### **5. Quadratic Time Complexity - `O(n^2)`**
+Bubble Sort and other nested loop algorithms exhibit `O(n^2)` complexity.
+
+#### **Example: Bubble Sort**
+
+---
+### **6. Exponential Time Complexity - O(2^n)**
+
+An O(2^n) algorithm's execution time doubles with each additional input. This complexity is seen in recursive solutions like the Fibonacci sequence.
+
+#### **Example: Recursive Fibonacci Calculation**
+---
+
+### **7. Factorial Time Complexity - `O(n!)`**
+An `O(n!)` algorithm's execution time grows factorially, making it infeasible for large inputs. This is seen in problems like the Traveling Salesman Problem (TSP).
+
+#### **Example: Generating All Permutations**
+
