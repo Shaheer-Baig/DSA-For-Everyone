@@ -32,3 +32,14 @@ Graph representation and traversal using BFS (Breadth-First Search) and DFS (Dep
 Implementation of Dijkstra’s Algorithm for shortest path calculations.
 # Hash Maps
 Implementation of hash maps using techniques such as separate chaining, linear probing, quadratic probing, and double hashing
+How to Use
+Clone this repository to your local machine using:
+
+git clone https:
+Navigate into the directory you are interested in.
+
+Read the README.md in each folder for detailed explanations of the concepts and the implementations in each file.
+
+Run the individual programs to see the algorithms in action.
+
+Open the codes in VS-Code/nano/vim or any editor of your choice to learn from the code.
