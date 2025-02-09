@@ -48,9 +48,6 @@ Final sorted array:
 
 ### **Recursive Quick Sort (C++ Implementation)**
 ```cpp
-#include <iostream>
-using namespace std;
-
 // Function to partition the array
 int partition(int arr[], int low, int high) {
     int pivot = arr[high]; // Choosing the last element as pivot
