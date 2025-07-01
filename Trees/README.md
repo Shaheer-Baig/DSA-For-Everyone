@@ -169,6 +169,7 @@ sudo docker rm [container-id]
 
 ```bash
 sudo docker run -d -p 80:80 nginx
+sudo docker run -d -p 8080:80 --name my-site nginx
 ```
 
 **Run in detached mode:**
@@ -181,6 +182,7 @@ sudo docker run -d nginx
 
 ```bash
 sudo docker run -d -p 8080:80 nginx
+sudo docker run -d -p 8888:80 prakhar1989/static-site
 ```
 
 **Stop the container:**
@@ -198,6 +200,8 @@ sudo docker stop [container-id]
 ```bash
 git clone https://github.com/docker/awesome-compose.git
 cd awesome-compose/flask
+git clone https://github.com/prakhar1989/docker-compose.git
+
 ```
 
 **Build the image:**
@@ -210,6 +214,7 @@ sudo docker build -t my-flask-app .
 
 ```bash
 sudo docker run -d -p 5000:5000 my-flask-app
+sudo docker run -d -p 8888:5000 root/catnip
 ```
 
 ---
