@@ -1,5 +1,7 @@
 if u can send me zap mera ny chal raha yaha can u?
 
+I do not have it on my laptop, will ask Faisal or anyone else is possible.
+
 import os
 from flask import Flask, url_for, render_template, json, redirect, request, abort, jsonify
 from flask_wtf import FlaskForm
