@@ -123,6 +123,173 @@ Traversal means visiting each node in the tree systematically. Common methods in
 | **Deletion**  | O(n)                         | Need to locate the node before deletion.    |
 | **Traversal** | O(n)                         | Visits all nodes in a single traversal.     |
 
+
+**Docker Commands**
+### 📦 **Set up Docker APT repository**
+
+```bash
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+```
+### 📦 **Using Docker with BusyBox**
+
+**Pull the BusyBox image:**
+
+```bash
+sudo docker pull busybox
+```
+
+**List images:**
+
+```bash
+sudo docker images
+```
+
+**Run BusyBox command:**
+
+```bash
+sudo docker run busybox echo "Hello from BusyBox"
+```
+
+**Manage containers:**
+
+```bash
+sudo docker ps
+sudo docker ps -a
+sudo docker start [container-id]
+sudo docker stop [container-id]
+sudo docker rm [container-id]
+```
+
+---
+
+### 🌐 **Web App with Docker**
+
+**Run a static website:**
+
+```bash
+sudo docker run -d -p 80:80 nginx
+```
+
+**Run in detached mode:**
+
+```bash
+sudo docker run -d nginx
+```
+
+**Specify custom port:**
+
+```bash
+sudo docker run -d -p 8080:80 nginx
+```
+
+**Stop the container:**
+
+```bash
+sudo docker stop [container-id]
+```
+
+---
+
+### 🐳 **Creating Your Own Docker Image**
+
+**Clone Flask App:**
+
+```bash
+git clone https://github.com/docker/awesome-compose.git
+cd awesome-compose/flask
+```
+
+**Build the image:**
+
+```bash
+sudo docker build -t my-flask-app .
+```
+
+**Run the Flask app:**
+
+```bash
+sudo docker run -d -p 5000:5000 my-flask-app
+```
+
+---
+
+### 📤 **Docker Push**
+
+**Login to Docker Hub:**
+
+```bash
+sudo docker login
+```
+
+**Tag the image:**
+
+```bash
+sudo docker tag my-flask-app yourusername/my-flask-app
+```
+
+**Push the image:**
+
+```bash
+sudo docker push yourusername/my-flask-app
+```
+
+---
+
+### 🔐 **Securing Docker (OWASP Rules)**
+
+#### Rule #2 – Run as non-root user
+
+**Dockerfile:**
+
+```dockerfile
+FROM busybox
+RUN adduser -D myuser
+USER myuser
+CMD ["sh"]
+```
+
+**Build the image:**
+
+```bash
+sudo docker build -t non-root-app .
+```
+
+**Run the container:**
+
+```bash
+sudo docker run -it non-root-app
+```
+
+**Verify it runs as non-root:**
+
+```bash
+id
+```
+
+---
+
+#### Rule #3 – Drop capabilities
+
+**Drop all and add only needed:**
+
+```bash
+sudo docker run -it --cap-drop=ALL --cap-add=NET_BIND_SERVICE nginx
+```
+
+**Test by dropping only a few:**
+
+```bash
+sudo docker run -it --cap-drop=SYS_ADMIN nginx
+```
+
+---
+
+#### Rule #8 – Set filesystem to read-only
+
+```bash
+sudo docker run -it --read-only nginx
+```
 ######**Jenkins Initial Setup** #####
 ### **1. Pre-requisites**
 
