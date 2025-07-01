@@ -123,3 +123,365 @@ Traversal means visiting each node in the tree systematically. Common methods in
 | **Deletion**  | O(n)                         | Need to locate the node before deletion.    |
 | **Traversal** | O(n)                         | Visits all nodes in a single traversal.     |
 
+######**Jenkins Initial Setup** #####
+### **1. Pre-requisites**
+
+* **Java Installation:**
+  Java must be installed before running Jenkins. If it's not installed, download and install it from:
+  [https://www.oracle.com/java/technologies/downloads/#jdk21-windows](https://www.oracle.com/java/technologies/downloads/#jdk21-windows)
+
+---
+
+### **2. Download Jenkins WAR File**
+
+* Download the `jenkins.war` file from Jenkins' official website to run Jenkins as a standalone application.
+
+---
+
+### **3. Start Jenkins Using WAR File**
+
+* Open **Command Prompt**.
+* Use `cd` to navigate to the directory containing `jenkins.war`.
+* Run Jenkins with the command:
+
+  ```bash
+  java -jar jenkins.war
+  ```
+
+---
+
+### **4. Access Jenkins in Browser**
+
+* Go to: [http://localhost:8080](http://localhost:8080)
+* Enter the initial admin password (found at `C:\Users\<UserName>\.jenkins\secrets\initialAdminPassword`).
+* Select **Install Suggested Plugins**.
+* Complete admin user setup.
+
+---
+
+### **5. Jenkins + Tomcat Setup**
+
+* **Download Tomcat:**
+  From [https://tomcat.apache.org/download-70.cgi](https://tomcat.apache.org/download-70.cgi)
+* **Unzip Tomcat** and go to its `webapps` folder.
+* Copy `jenkins.war` into the `webapps` directory.
+* Start Tomcat and access Jenkins at:
+  [http://localhost:8080/jenkins](http://localhost:8080/jenkins)
+
+---
+
+### **6. Verifying Java Installation**
+
+* Confirm Java is installed by running:
+
+  ```bash
+  java -version
+  ```
+* Also verify the `JAVA_HOME` path.
+
+---
+
+### **7. Integrate Git with Jenkins**
+
+* Go to:
+  `Manage Jenkins` → `Plugin Manager` → `Available` tab
+* Search for **Git Plugin** or **Git Push Plugin**.
+* Install the plugin and restart Jenkins from:
+  [http://localhost:8080/jenkins/restart](http://localhost:8080/jenkins/restart)
+
+---
+
+### **8. Create Freestyle Jenkins Job**
+
+* From Jenkins dashboard:
+
+  * Click **New Item** → select **Freestyle project**.
+  * Configure build settings as per your requirement.
+
+---
+
+### **9. After Build Successful**
+
+* Post-build actions like notifications, archiving artifacts, or deploying can be configured based on job success.
+
+
+
+###**Jenkins Lab 14**###
+
+## 🔹 **1. Start Jenkins**
+
+If using Jenkins via `.war` file:
+
+```bash
+# Navigate to the folder where jenkins.war is located
+cd ~/Downloads
+
+# Start Jenkins on port 8080
+java -jar jenkins.war
+```
+
+If installed via package manager on Linux:
+
+```bash
+# Start Jenkins service
+sudo systemctl start jenkins
+
+# Enable on boot
+sudo systemctl enable jenkins
+
+# Check status
+sudo systemctl status jenkins
+```
+
+---
+
+### 🔹 **2. Create a New File with Code**
+
+```bash
+# Create the Jenkinsfile
+nano Jenkinsfile
+```
+
+Paste this basic pipeline:
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running unit tests...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+            }
+        }
+    }
+}
+```
+
+---
+
+### 🔹 **3. Create Pipeline (Jenkins GUI Setup)**
+
+No terminal commands, but you'd:
+
+* Go to `http://localhost:8080`
+* Create a **new item > Pipeline**
+* Under **Pipeline > Definition**, choose "Pipeline script from SCM" or paste the `Jenkinsfile` code directly.
+
+---
+
+### 🔹 **4. Validate URL**
+
+```bash
+# Open Jenkins in browser
+xdg-open http://localhost:8080
+# or manually go to
+http://localhost:8080
+```
+
+---
+
+### 🔹 **5. Post Build Actions in Jenkinsfile**
+
+```groovy
+post {
+    always {
+        echo 'This will always run'
+    }
+    success {
+        echo 'This build was successful!'
+    }
+    failure {
+        echo 'This build failed!'
+    }
+}
+```
+
+---
+
+### 🔹 **6. Build Again (via GUI or trigger job)**
+
+No command, but this could simulate a build trigger:
+
+```bash
+# Rebuild the job using Jenkins REST API (if using tokens)
+curl -X POST http://localhost:8080/job/your-job-name/build \
+  --user youruser:apitoken
+```
+
+---
+
+### 🔹 **7. Define Conditionals for Stages**
+
+```groovy
+stage('Deploy to Production') {
+    when {
+        branch 'main'
+    }
+    steps {
+        echo 'Deploying to Production...'
+    }
+}
+```
+
+---
+
+### 🔹 **8. Environment Variables**
+
+```groovy
+environment {
+    APP_VERSION = '1.0.2'
+    DEPLOY_ENV = 'dev'
+}
+
+stages {
+    stage('Info') {
+        steps {
+            echo "Version: ${env.APP_VERSION}"
+            echo "Deploying to: ${env.DEPLOY_ENV}"
+        }
+    }
+}
+```
+
+---
+
+### 🔹 **9. Tools Attribute for Build Tools**
+
+```groovy
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.8.1'
+        jdk 'JDK 11'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+    }
+}
+```
+
+---
+
+### 🔹 **10. Create `pom.xml`**
+
+```bash
+nano pom.xml
+```
+
+Paste the following:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>myapp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- Sample dependency -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+```
+
+---
+
+### 🔹 **11. Parameters in Jenkins**
+
+```groovy
+pipeline {
+    agent any
+    parameters {
+        string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: 'Target deployment environment')
+        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run unit tests?')
+    }
+    stages {
+        stage('Show Params') {
+            steps {
+                echo "Deploying to: ${params.DEPLOY_ENV}"
+                echo "Run tests: ${params.RUN_TESTS}"
+            }
+        }
+    }
+}
+```
+
+---
+
+### 🔹 **12. Final Pipeline Combining Everything**
+
+```groovy
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.8.1'
+    }
+
+    environment {
+        APP_VERSION = '1.0.0'
+        DEPLOY_ENV = "${params.ENV}"
+    }
+
+    parameters {
+        string(name: 'ENV', defaultValue: 'dev', description: 'Environment')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            when {
+                expression { return params.ENV != 'prod' }
+            }
+            steps {
+                sh 'mvn test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying to environment: ${params.ENV}"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline executed successfully.'
+        }
+        failure {
+            echo 'Pipeline execution failed.'
+        }
+    }
+}
+
+
