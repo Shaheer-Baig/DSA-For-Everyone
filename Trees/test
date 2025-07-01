@@ -260,3 +260,61 @@ if __name__ == '__main__':
 
 
 
+
+--data>>db_session.py--
+
+import sqlalchemy as sa
+import sqlalchemy.orm as orm
+from sqlalchemy.orm import Session
+import sqlalchemy.ext.declarative as dec
+# CHANGE: Added os for path validation
+import os
+# CHANGE: Added re for secure file path validation
+import re
+
+SqlAlchemyBase = dec.declarative_base()
+
+__factory = None
+
+def global_init(db_file):
+    global __factory
+
+    if __factory:
+        return
+
+    # CHANGE: Added validation for database file path to prevent path traversal
+    if not db_file or not db_file.strip():
+        raise Exception("Необходимо указать файл базы данных.")
+    
+    # CHANGE: Validate database file path to ensure it is safe
+    # Purpose: Prevent path traversal or injection by restricting to valid file names
+    if not re.match(r'^[a-zA-Z0-9_/.-]+\.sqlite$', db_file.strip()):
+        raise Exception("Недопустимый путь к файлу базы данных. Используйте только буквы, цифры, /, _, -, . и расширение .sqlite")
+    
+    # CHANGE: Verify that the file path is within a safe directory
+    # Purpose: Ensure the database file is in an expected location
+    base_dir = os.path.abspath(os.path.dirname(__file__))
+    db_path = os.path.abspath(db_file.strip())
+    if not db_path.startswith(base_dir):
+        raise Exception("Файл базы данных должен находиться в пределах проектной директории.")
+
+    conn_str = f'sqlite:///{db_file.strip()}?check_same_thread=False'
+    print(f"Подключение к базе данных по адресу {conn_str}")
+
+    engine = sa.create_engine(conn_str, echo=False)
+    __factory = orm.sessionmaker(bind=engine)
+
+    from . import __all_models
+
+    SqlAlchemyBase.metadata.create_all(engine)
+
+def create_session() -> Session:
+    global __factory
+    # CHANGE: Added error handling for session creation failure
+    # Purpose: Provide secure error handling if session factory is not initialized
+    if not __factory:
+        raise Exception("Сессия базы данных не инициализирована. Вызовите global_init сначала.")
+    return __factory()
+
+
+
