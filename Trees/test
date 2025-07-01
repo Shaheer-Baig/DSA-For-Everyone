@@ -1,5 +1,4 @@
-bus set hy baki may karleta hu
---main.py--
+if u can send me zap mera ny chal raha yaha can u?
 
 import os
 from flask import Flask, url_for, render_template, json, redirect, request, abort, jsonify
